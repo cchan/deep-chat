@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/mathnerd3141/deep-chat.git"
+    "url": "git+ssh://git@github.com/cchan/deep-chat.git"
   },
   "keywords": [
     "DEEP"
@@ -16,9 +16,9 @@
   "author": "Clive Chan",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mathnerd3141/deep-chat/issues"
+    "url": "https://github.com/cchan/deep-chat/issues"
   },
-  "homepage": "https://github.com/mathnerd3141/deep-chat#readme",
+  "homepage": "https://github.com/cchan/deep-chat#readme",
   "dependencies": {
     "express": "^4.10.2",
     "pg": "^4.4.0"
