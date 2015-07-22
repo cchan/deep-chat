@@ -1,0 +1,26 @@
+{
+  "name": "deep-chat",
+  "version": "0.0.0",
+  "description": "DEEP Summer 2015 Chat Application",
+  "main": "index.js",
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/mathnerd3141/deep-chat.git"
+  },
+  "keywords": [
+    "DEEP"
+  ],
+  "author": "Clive Chan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mathnerd3141/deep-chat/issues"
+  },
+  "homepage": "https://github.com/mathnerd3141/deep-chat#readme",
+  "dependencies": {
+    "express": "^4.10.2",
+    "pg": "^4.4.0"
+  }
+}
