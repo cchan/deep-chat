@@ -4,6 +4,10 @@ var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
+
+//Master-relay: http://stackoverflow.com/a/9688972/1181387
+
+
 app.get('/', function(req, res){
   res.sendFile('index.html', { root: __dirname });
 });
@@ -14,6 +18,7 @@ io.on('connection', function(socket){
   socket.on('disconnect', function(){
 	  console.log('disconnected');
   });
+  socket.on('new message', function(msg){console.log("MESSAGE: ",msg);});
   socket.on('chat msg', function(msg){
 	  console.log("MESSAGE: ", msg);
 	  io.emit('chat msg', msg);
