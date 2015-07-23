@@ -15,12 +15,15 @@ io.on('connection', function(socket){
 	  console.log('disconnected');
   });
   socket.on('chat msg', function(msg){
-	  console.log("MESSAGE:");
-	  console.log(msg);
+	  console.log("MESSAGE: ", msg);
 	  io.emit('chat msg', msg);
+  });
+  socket.on('clear', function(){
+	  console.log("CLEARED")
+	  io.emit('clear');
   });
 });
 
 http.listen(process.env.PORT || 3000, function(){ //Heroku dynamically assigns port http://stackoverflow.com/a/15693371
-  console.log('listening on *:3000');
+  console.log('listening on *:' + (process.env.PORT || 3000));
 });
