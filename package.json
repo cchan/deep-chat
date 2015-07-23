@@ -4,7 +4,8 @@
   "description": "DEEP Summer 2015 Chat Application",
   "main": "index.js",
   "scripts": {
-    "test": "make test"
+	"prestart": "sass public/main.scss:public/style.css",
+    "start": "foreman start"
   },
   "repository": {
     "type": "git",
@@ -20,7 +21,8 @@
   },
   "homepage": "https://github.com/cchan/deep-chat#readme",
   "dependencies": {
-    "express": "^4.10.2",
-    "pg": "^4.4.0"
+    "socket.io" : "latest",
+    "express": "latest",
+    "pg": "latest"
   }
 }

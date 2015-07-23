@@ -1,15 +1,26 @@
 var pg = require('pg');
 var express = require('express');
 var app = express();
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
 
-app.set('port', (process.env.PORT || 5000));
+app.get('/', function(req, res){
+  res.sendFile('index.html', { root: __dirname });
+});
+app.use(express.static('public'));
 
-app.use(express.static(__dirname + '/public')); //???
-
-app.listen(app.get('port'), function() {
-  console.log('Node app is running on port', app.get('port'));
+io.on('connection', function(socket){
+  console.log('a user connected');
+  socket.on('disconnect', function(){
+	  console.log('disconnected');
+  });
+  socket.on('chat msg', function(msg){
+	  console.log("MESSAGE:");
+	  console.log(msg);
+	  io.emit('chat msg', msg);
+  });
 });
 
-app.get('/', function(request, response){
-	response.sendFile('index.html');
+http.listen(3000, function(){
+  console.log('listening on *:3000');
 });
