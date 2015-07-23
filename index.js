@@ -21,6 +21,6 @@ io.on('connection', function(socket){
   });
 });
 
-http.listen(3000, function(){
+http.listen(process.env.PORT || 3000, function(){ //Heroku dynamically assigns port http://stackoverflow.com/a/15693371
   console.log('listening on *:3000');
 });
