@@ -5,9 +5,11 @@ var app = angular.module('ChatApp', []);
 //app.config();
 
 app.controller('ChatController', ['$scope', function($scope){
+	var socket = io();
+	
 	$scope.messages = [];
 	$scope.submit = function(){
-		io().emit('chat msg', {
+		socket.emit('chat msg', {
 			name: $('#name').val(),
 			text: $('#msg').val(),
 			time: Date.now()
@@ -16,11 +18,10 @@ app.controller('ChatController', ['$scope', function($scope){
 		return false;
 	}
 	$scope.clear = function(){
-		io().emit('clear');
+		socket.emit('clear');
 		return false;
 	}
 	
-	var socket = io();
 	socket.on('chat msg', function(msg){
 		$scope.messages.push(msg);
 		$scope.messages.sort(function(a,b){ //clock async problems...
